@@ -100,6 +100,7 @@
     <ul class="menu">
         <?php
             foreach ($menu as $m){
+                
                 echo '<li data-id="' . $m['id'] .'"><a href="' . $m['url'] . '">' . $m['title'] .'</a></li>';
             }
 
@@ -112,11 +113,11 @@
 
             	$menu2[$k] = $v;
             }
-            var_dump($_SERVER)
+
         ?>
     </ul>
 </nav>
 
-<h1>Main</h1>
+<h1>Contacts</h1>
 </body>
 </html>
