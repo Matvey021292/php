@@ -1,3 +1,14 @@
+<?php
+	require 'function.php';
+	if (empty($_GET)) {
+		$noget = true;
+
+	}else{
+		$rows = isset($_GET['rows']) ? $_GET['rows']:'';
+		$cols = isset($_GET['cols']) ? $_GET['cols']:'';
+		$color = isset($_GET['color']) ? $_GET['color']:'';
+	}
+?>
 <?php 
 	$first = isset($_GET['first']) ? $_GET['first']:'';
 	$second = isset($_GET['second']) ? $_GET['second']:'';
@@ -118,5 +129,42 @@
 </nav>
 
 <h1>Main</h1>
+<h1><?php
+echo Myfunc('hello','word')
+?></h1>
+
+
+<form action="" method="get">
+	<label>Enter rows
+		<input type="number" name="rows">
+	</label>
+	<label>Enter cols
+		<input type="number" name="cols">
+	</label>
+	<label>Enter color
+		<input type="color" name="color">
+	</label>
+	<input type="submit" name="submit">
+</form>
+<?php
+	DrowTable($rows,$cols,$color);
+
+	
+?>
+<?php
+function DrowTable($row, $col, $color = 'blue'){
+echo '<table>';
+for($i = 1;$i<=$row;$i++){
+	echo '<tr>';
+	for($j=1;$j<$col;$j++){
+		echo "<td style='background-color:$color'>" . $i * $j . '</td>';
+	}
+	echo '</tr>';
+}
+echo'</table>';
+
+}
+
+?>
 </body>
 </html>
